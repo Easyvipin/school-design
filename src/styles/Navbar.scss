@@ -1,0 +1,111 @@
+@mixin navBar {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  ul {
+    margin: 0;
+    display: flex;
+    padding: 0;
+  }
+  li {
+    height: 100%;
+    list-style: none;
+    padding: 30px 15px;
+    font-size: $smallSize;
+    text-transform: uppercase;
+    font-weight: $subHead;
+    font-family: $primaryFont;
+  }
+  li:hover {
+    background-color: $menuColor;
+  }
+  li a {
+    text-decoration: none;
+    color: black;
+  }
+
+  button {
+    @include buttonStyle($menuColor, 15px, whitesmoke, $subHead, 5px, 0);
+  }
+
+  .menu-search img {
+    width: 14px;
+  }
+  .menu-search {
+    padding: 12px 15px;
+    border-radius: 50%;
+  }
+  .auth-div {
+    display: inline;
+    border-left: 2px solid whitesmoke;
+    margin-left: 20px;
+    padding: 10px 20px;
+  }
+  .fa-bars {
+    display: none;
+  }
+  #mobile-nav {
+    z-index: 100;
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    padding: 20px 10px;
+    top: 0%;
+    width: 100%;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    background-color: black;
+    color: whitesmoke;
+    transition: 1s ease-in-out all;
+
+    span {
+      font-size: 15px;
+      font-weight: 400;
+      border: 2px solid whitesmoke;
+      padding: 10px 15px;
+      border-radius: 50%;
+    }
+    ul {
+      display: flex;
+      flex-direction: column;
+      .resp-menu {
+        padding: 10px 10px;
+      }
+      .resp-menu a {
+        color: whitesmoke;
+      }
+    }
+    .auth-div {
+      margin-top: 10px;
+      margin-left: 0;
+      display: block;
+      border: 0;
+      padding: 2px 2px;
+      text-align: center;
+    }
+    .resp-side {
+      margin-top: 10px;
+    }
+  }
+  @include responsive(300px, 1050px) {
+    .side-menu button {
+      display: none;
+    }
+    .auth-div {
+      display: none;
+    }
+    .menu {
+      display: none;
+    }
+    .fa-bars {
+      text-align: center;
+      display: block;
+      margin-right: 10px;
+    }
+  }
+}

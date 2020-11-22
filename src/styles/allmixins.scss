@@ -1,0 +1,118 @@
+@mixin bodyStyle() {
+  margin: 0;
+  padding: 0;
+
+  font-family: $mainFont;
+}
+/* container */
+@mixin containerStyle($contWidth, $align, $padding, $backgroundImage, $height) {
+  width: $contWidth;
+  min-height: $height;
+  text-align: $align;
+  padding: $padding;
+  background-image: url($backgroundImage);
+  background-size: cover;
+}
+
+@mixin buttonStyle(
+  $backgroundButton,
+  $fontSizeButton,
+  $fontColor,
+  $fontWt,
+  $radius,
+  $borderValue
+) {
+  padding: 16px 20px;
+  border-radius: $radius;
+  outline: none;
+  border: $borderValue;
+  cursor: pointer;
+  font-family: $mainFont;
+  font-weight: $fontWt;
+  background-color: $backgroundButton;
+  color: $fontColor;
+}
+@mixin headerStyle($headerColor, $headerSize, $headerFont, $headerWt) {
+  h1 {
+    font-size: $headerSize;
+    font-family: $headerFont;
+    color: $headerColor;
+    display: inline-block;
+  }
+}
+@mixin paraStyle($Color, $Size, $Font, $wt, $width, $align) {
+  p {
+    font-size: $Size;
+    font-family: $Font;
+    color: $Color;
+    width: $width;
+    text-align: $align;
+
+    font-weight: $wt;
+  }
+}
+
+@mixin formStyle {
+  margin-top: 70px;
+  text-align: center;
+  font-family: $primaryFont;
+
+  label {
+    font-size: 1rem;
+    display: block;
+  }
+  input {
+    box-sizing: border-box;
+    margin-top: 4px !important;
+    padding: 10px 10px;
+    left: 0px;
+    text-align: center;
+    border: 0;
+    border-radius: 2px;
+    margin-bottom: 4px;
+    background-color: black;
+    color: whitesmoke;
+  }
+  input:focus {
+    box-sizing: border-box;
+    border-bottom: 2px solid orange;
+  }
+
+  input[type="text"] {
+    font-size: 14px;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+  input:focus {
+    outline: none;
+  }
+  button {
+    width: 120px;
+    margin: auto;
+    margin-top: 5px;
+    display: block;
+    border: 0;
+    border-radius: 5px;
+    padding: 10px 10px;
+    background-color: yellow;
+    outline: none;
+  }
+  fieldset {
+    border: 4px dashed black;
+    border-radius: 5px;
+  }
+  span {
+    color: rgb(250, 40, 40);
+    display: block;
+    margin-top: 20px;
+  }
+}

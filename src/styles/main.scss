@@ -1,0 +1,779 @@
+@import "./allcolors.scss";
+@import "./alfonts.scss";
+@import "./allmixins.scss";
+@import "./responsiveMixin.scss";
+@import "./Navbar.scss";
+@import "./footer.scss";
+
+/* body  */
+
+body {
+  @include bodyStyle();
+}
+/* navbar */
+nav {
+  @include navBar();
+}
+/* banner */
+.banner {
+  position: relative;
+  @include containerStyle(
+    100%,
+    center,
+    120px 0px,
+    "../images/slider.jpg",
+    300px
+  );
+  @include headerStyle(whitesmoke, 2.5rem, $mainFont, 800);
+  @include paraStyle(whitesmoke, 14px, $primaryFont, 600, 650px, center);
+  p {
+    margin: auto;
+    margin-top: -20px;
+    margin-bottom: 20px;
+  }
+  button {
+    @include buttonStyle(
+      rgba(255, 255, 255, 0),
+      16px,
+      rgb(245, 245, 245),
+      600,
+      25px 25px 25px 25px,
+      2px solid whitesmoke
+    );
+    margin: 0px 10px;
+  }
+  button:hover {
+    background-color: $menuColor;
+    border: 2px solid $menuColor;
+  }
+  i {
+    margin-right: 8px;
+  }
+  @include responsive(768px, 1236px) {
+    @include headerStyle(whitesmoke, 2rem, $mainFont, 800);
+    @include paraStyle(whitesmoke, 14px, $primaryFont, 600, 300px, center);
+    button {
+      margin: 10px 10px;
+    }
+  }
+  @include responsive_mobile() {
+    @include containerStyle(
+      100%,
+      center,
+      120px 2px,
+      "../images/slider.jpg",
+      280px
+    );
+    @include headerStyle(whitesmoke, 1.8rem, $mainFont, 800);
+    @include paraStyle(whitesmoke, 14px, $primaryFont, 600, 250px, center);
+    button {
+      margin: 10px 10px;
+    }
+  }
+}
+
+/* features */
+.features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  grid-gap: 20px;
+  align-items: center;
+  width: 80%;
+  position: relative;
+  margin-top: -100px;
+  margin-left: 10%;
+
+  /* cards */
+  div {
+    @include paraStyle(whitesmoke, 15px, $primaryFont, 600, "", center);
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 24px 10px;
+    height: 240px;
+    position: relative;
+    /* IMAGE */
+    img {
+      background: whitesmoke;
+      padding: 20px 20px;
+      border-radius: 50%;
+      position: absolute;
+      left: 30%;
+      top: -20%;
+    }
+    h3 {
+      text-align: center;
+      margin-top: 75px;
+      position: relative;
+      color: whitesmoke;
+      font-family: $primaryFont;
+      font-weight: 400;
+      font-size: 1.5rem;
+
+      /* border */
+    }
+  }
+  .one {
+    background-color: #f0aa00;
+  }
+  .two {
+    background-color: #ff002a;
+  }
+  .three {
+    background-color: #003d69;
+  }
+  .four {
+    background-color: #3db2d5;
+  }
+  @include responsive(768px, 1236px) {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    div {
+      margin-top: 80px;
+      img {
+        left: 42%;
+        top: -30%;
+      }
+    }
+  }
+  @include responsive_mobile() {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    div {
+      margin-top: 80px;
+      img {
+        width: 40px;
+        height: 40px;
+        left: 35%;
+        top: -20%;
+      }
+    }
+  }
+}
+
+/* ------- services  ------ */
+.our-services {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 30px;
+  width: 80%;
+  margin: auto;
+  margin-top: 200px;
+
+  /* right-container */
+  .right-container {
+    background-image: url("../images/aboutImg.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  /* left-container */
+  .left-container {
+    @include headerStyle(black, 2.5rem, $mainFont, 800);
+    h1 {
+      margin-top: 0px;
+    }
+    p {
+      margin: 0px;
+    }
+    @include paraStyle(rgb(164, 162, 162), 15px, $primaryFont, 400, "", "");
+    .each-service {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 10px 10px;
+
+      img {
+        width: 50px;
+        height: 50px;
+        background-color: lightblue;
+        padding: 10px 10px;
+        border-radius: 50%;
+      }
+      div {
+        margin-left: 20px;
+      }
+    }
+  }
+
+  @include responsive(768px, 1236px) {
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    .right-container {
+      background-position: center;
+      content: " ";
+      height: 300px;
+      width: 300px;
+      margin: auto;
+    }
+  }
+  @include responsive_mobile() {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    margin-top: 80px;
+    .right-container {
+      background-position: center;
+      content: " ";
+      height: 300px;
+      width: 300px;
+      margin: auto;
+    }
+  }
+}
+
+/* slider cards */
+.sliderCards {
+  text-align: center;
+  background-image: URL("../images/class-bg.jpg");
+
+  h2 {
+    display: inline-block;
+    text-align: center;
+    color: whitesmoke;
+    font-size: 2rem;
+    padding: 8px 8px;
+  }
+  width: 80%;
+  margin: auto;
+  margin-top: 100px;
+  .slick-slider {
+    width: 90%;
+    margin: auto;
+    padding: 20px 20px;
+    button {
+      margin: auto;
+    }
+  }
+  .each-card {
+    width: 341px !important;
+    overflow: hidden;
+    margin: auto !important;
+    position: relative;
+    height: 420px;
+    background-color: whitesmoke;
+    /* image */
+    .class-image {
+      position: relative;
+      span {
+        background-color: rgb(43, 157, 43);
+        padding: 10px 10px;
+        position: absolute;
+        right: 5%;
+        bottom: 0;
+        border-radius: 5px 5px 0px 0px;
+        font-family: $primaryFont;
+        color: white;
+      }
+    }
+    /* desc */
+    .class-desc {
+      p {
+        font-family: $primaryFont;
+        font-weight: 400;
+        color: $paraColor;
+        padding: 4px 10px;
+        text-align: left;
+      }
+      h3 {
+        padding: 4px 10px;
+        text-align: left;
+      }
+
+      .card-footer {
+        border-top: 2px solid rgb(194, 194, 194);
+        position: absolute;
+        padding: 12px 4px;
+        bottom: 0;
+        h4 {
+          display: inline;
+          font-size: 12px;
+          color: $paraColor;
+          font-family: $primaryFont;
+        }
+
+        h4:nth-child(1) {
+          margin-right: 220px;
+        }
+      }
+    }
+  }
+  @include responsive_mobile() {
+    width: 100%;
+    .slick-slider {
+      .slick-prev {
+        display: none !important;
+      }
+      .slick-next {
+        display: none !important;
+      }
+      padding: 0px 0px;
+    }
+    .each-card {
+      width: 200px;
+      .class-image {
+        span {
+          right: 20%;
+          bottom: 0;
+        }
+      }
+      .class-desc {
+        p {
+          font-family: $primaryFont;
+          font-weight: 400;
+          color: $paraColor;
+          padding: 4px 10px;
+          text-align: left;
+        }
+        h3 {
+          padding: 4px 10px;
+          text-align: left;
+        }
+
+        .card-footer {
+          h4:nth-child(1) {
+            margin-right: 150px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* best child */
+.best-child {
+  @include containerStyle(
+    100%,
+    center,
+    120px 0px,
+    "../images/choice-bg.jpg",
+    250px
+  );
+  margin: auto;
+  @include headerStyle(#56225e, 2.5rem, $mainFont, 800);
+  h1 {
+    width: 500px;
+  }
+  @include paraStyle(black, 16px, $primaryFont, 400, 650px, center);
+  p {
+    margin: auto;
+    margin-top: -20px;
+    margin-bottom: 20px;
+  }
+  button {
+    @include buttonStyle(
+      #ee3131,
+      16px,
+      rgb(245, 245, 245),
+      600,
+      25px 25px 25px 25px,
+      2px solid whitesmoke
+    );
+    margin: 0px 10px;
+  }
+  button:hover {
+    background-color: $menuColor;
+    border: 2px solid $menuColor;
+  }
+  @include responsive(768px, 1236px) {
+    @include headerStyle(#56225e, 2rem, $mainFont, 800);
+    @include paraStyle(black, 16px, $primaryFont, 400, 400px, center);
+    h1 {
+      width: 300px;
+    }
+    background-position: center;
+  }
+  @include responsive_mobile() {
+    h1 {
+      width: 300px;
+    }
+    @include headerStyle(#56225e, 1.5rem, $mainFont, 800);
+    @include paraStyle(black, 16px, $primaryFont, 400, 300px, center);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+/* video */
+
+.videobanner {
+  text-align: center;
+  @include headerStyle(#56225e, 2.5rem, $mainFont, 800);
+  div {
+    height: 450px;
+    width: 70%;
+    margin: auto;
+    background-image: url(../images/large_img.jpg);
+    background-size: cover;
+    border: 20px solid rgb(255, 254, 254);
+    box-shadow: 5px 5px 10px rgb(231, 230, 230);
+    position: relative;
+    i {
+      position: absolute;
+      top: 50%;
+      left: 45%;
+      font-size: 100px;
+      color: rgb(226, 225, 225);
+    }
+  }
+  div:hover {
+    cursor: pointer;
+  }
+  @include responsive(768px, 1236px) {
+    div {
+      background-position: center;
+    }
+  }
+  @include responsive_mobile() {
+    @include headerStyle(#56225e, 1.4rem, $mainFont, 800);
+    div {
+      width: 90%;
+      height: 300px;
+      margin: 5px 5px;
+      margin: auto;
+      background-position: center;
+      border: 4px solid rgb(255, 254, 254);
+      i {
+        font-size: 50px;
+      }
+    }
+  }
+}
+
+/* GALLERY */
+.gallery {
+  width: 90%;
+  margin: auto;
+  margin-top: 100px;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  justify-items: center;
+  align-items: center;
+  padding: 50px 20px;
+  background-color: rgb(154, 244, 247);
+  .left-container {
+    @include headerStyle(#56225e, 2.5rem, $mainFont, 800);
+    @include paraStyle(black, 16px, $primaryFont, 400, 300px, center);
+    p {
+      text-align: left;
+      margin-top: 0px;
+    }
+    button {
+      @include buttonStyle(
+        $menuColor,
+        16px,
+        rgb(245, 245, 245),
+        600,
+        25px 25px 25px 25px,
+        2px solid whitesmoke
+      );
+      border: none;
+      button:hover {
+        background-color: $menuColor;
+        border: 2px solid $menuColor;
+      }
+    }
+  }
+  .Right-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+
+    img {
+      width: 250px;
+      height: 200px;
+    }
+  }
+  @include responsive(768px, 1236px) {
+    grid-template-columns: repeat(auto-fit, minmax(640px, 1fr));
+    .Right-container {
+      margin-top: 50px;
+      grid-template-columns: repeat(2, minmax(300px, 1fr));
+    }
+  }
+  @include responsive_mobile() {
+    .left-container {
+      @include headerStyle(#56225e, 1rem, $mainFont, 800);
+    }
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    .Right-container {
+      margin-top: 50px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+  }
+}
+
+/* testimonials */
+.testimonials {
+  text-align: center;
+  h3 {
+    font-family: $primaryFont;
+    color: $paraColor;
+    font-size: 1.5rem;
+  }
+  .fa-dot-circle {
+    margin: 5px;
+    margin-top: 40px;
+    color: #ee3131;
+  }
+
+  @include headerStyle(black, 2.5rem, $mainFont, 800);
+  h1 {
+    margin-top: -20px;
+  }
+  .cards {
+    width: 60%;
+    margin: auto;
+    margin-top: 70px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+  }
+  .each-card {
+    position: relative;
+    padding: 20px 20px;
+    background-color: #424761;
+    color: whitesmoke;
+    @include paraStyle($paraColor, 16px, $primaryFont, 400, 80, center);
+    p {
+      margin: auto;
+      font-style: italic;
+    }
+    .person {
+      display: inline-block;
+      position: absolute;
+      border-radius: 50%;
+      border: 2px solid black;
+      top: -20%;
+      left: 42%;
+    }
+    .ratings {
+      margin-top: 30px;
+    }
+    .fa-star {
+      color: yellow;
+      margin: 5px 5px;
+    }
+    .fa-quote-left {
+      color: #ee3131;
+      position: absolute;
+      font-size: 2.5rem;
+      background: whitesmoke;
+      padding: 20px 20px;
+      border: 2px solid $paraColor;
+      border-radius: 50%;
+      bottom: -35px;
+      right: 10%;
+    }
+    h5 {
+      margin-top: 10;
+      margin-bottom: 2px;
+    }
+    span {
+      margin-top: 0;
+      font-family: $primaryFont;
+      color: $paraColor;
+    }
+  }
+  margin-top: 60px;
+  @include responsive(768px, 1236px) {
+    .cards {
+      width: 80%;
+      grid-template-columns: repeat(auto-fit, minmax(640px, 1fr));
+    }
+    .each-card {
+      margin-top: 30px;
+    }
+  }
+  @include responsive_mobile() {
+    .cards {
+      width: 80%;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .each-card {
+      .person {
+        top: -20%;
+        left: 38%;
+      }
+
+      .fa-quote-left {
+        font-size: 1rem;
+        padding: 20px 20px;
+      }
+    }
+    .each-card:nth-child(2) {
+      margin-top: 80px;
+    }
+  }
+}
+
+/* enroll banner */
+.enroll-banner {
+  @include containerStyle(
+    100%,
+    center,
+    50px 0px,
+    "../images/enroll-bg.jpg",
+    150px
+  );
+  @include headerStyle(whitesmoke, 2.5rem, $mainFont, 800);
+  @include paraStyle(whitesmoke, 14px, $primaryFont, 600, 650px, center);
+  p {
+    margin: auto;
+    margin-top: -20px;
+    margin-bottom: 20px;
+  }
+  i {
+    display: inline;
+    color: whitesmoke;
+  }
+  h2 {
+    display: inline-block;
+    margin-left: 8px;
+    color: whitesmoke;
+  }
+  @include responsive(768px, 1236px) {
+    @include headerStyle(whitesmoke, 2rem, $mainFont, 800);
+    @include paraStyle(whitesmoke, 14px, $primaryFont, 600, 400px, center);
+  }
+  @include responsive_mobile() {
+    @include headerStyle(whitesmoke, 1.5rem, $mainFont, 800);
+    p {
+      margin-top: 5px;
+    }
+    @include paraStyle(whitesmoke, 14px, $primaryFont, 600, 300px, center);
+  }
+}
+
+/* TEACHERS */
+
+.teachers {
+  text-align: center;
+  margin-top: 40px;
+  @include headerStyle(#56225e, 2rem, $mainFont, 800);
+}
+.list-teacher {
+  width: 90%;
+  margin: auto;
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2px;
+}
+.each-teacher {
+  h3 {
+    margin-bottom: 5px;
+    font-family: $primaryFont;
+  }
+  h6 {
+    margin-top: 0px;
+    font-family: $primaryFont;
+  }
+}
+@include responsive(768px, 1236px) {
+  .list-teacher {
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+  }
+}
+@include responsive_mobile() {
+  .list-teacher {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+/* newsletter */
+.newsletter {
+  padding: 35px 80px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 50px;
+
+  background-color: #f31717;
+
+  .desc-newsletter {
+    padding: 0px 180px;
+    @include headerStyle(whitesmoke, 2rem, $mainFont, 800);
+    h1 {
+      margin-bottom: 0;
+    }
+    p {
+      font-family: $primaryFont;
+      color: whitesmoke;
+      margin-top: 10px;
+    }
+  }
+  form {
+    padding: 30px 30px;
+
+    input {
+      width: 70%;
+      height: 50px;
+      padding: 10px 15px;
+      box-sizing: border-box;
+      border: 0;
+    }
+
+    input:focus {
+      outline: none;
+    }
+    button {
+      padding: 15px 15px;
+      height: 50px;
+      background-color: black;
+      color: whitesmoke;
+      font: $primaryFont;
+      border: 0;
+    }
+  }
+  @include responsive(768px, 1236px) {
+    grid-gap: 0px;
+    .desc-newsletter {
+      padding: 10px 20px;
+    }
+    form {
+      padding: 5px 5px;
+
+      input {
+        width: 90%;
+        height: 50px;
+        padding: 10px 15px;
+      }
+    }
+
+    padding: 20px 30px;
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+  }
+  @include responsive_mobile() {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 0px;
+    .desc-newsletter {
+      text-align: center;
+      padding: 5px 10px;
+    }
+    form {
+      padding: 5px 5px;
+      text-align: center;
+      input {
+        width: 90%;
+        margin: auto;
+        height: 50px;
+        padding: 5px 5px;
+      }
+      button {
+        margin: auto;
+        margin-top: 10px;
+        display: block;
+      }
+    }
+    padding: 5px 5px;
+  }
+}
+
+/* modals */
+
+.phoneModal,
+.otpModal,
+.registerModal {
+  min-height: 300px;
+  text-align: center;
+  border: 2px solid $menuColor;
+  border-radius: 8px;
+  form {
+    @include formStyle();
+  }
+}
